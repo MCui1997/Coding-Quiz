@@ -23,26 +23,21 @@ var startScreenEl = document.getElementById("start-screen");
 //Timer begins to count down
 function startQuiz() {
 
-  // hide start screen
   startScreenEl.setAttribute("class", "hide");
-
-  // show questions
   questionsEl.removeAttribute("class");
 
-  // start timer
   timerId = setInterval(clockTick, 1000);
 
-  // show starting time
   timerEl.textContent = time;
 
   getQuestion();
+
 }
 
+//How to load questions from our storage
 function getQuestion() {
-  // get current question object from array
-  var currentQuestion = questions[currentQuestionIndex];
 
-  // update title with current question
+  var currentQuestion = questions[currentQuestionIndex];
   var titleEl = document.getElementById("question-title");
   titleEl.textContent = currentQuestion.title;
 

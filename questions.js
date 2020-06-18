@@ -1,35 +1,80 @@
-// list of all questions, choices, and answers
+// using dom, need to create the template for all questions
+// just used 10 questions from w3 schools
 var questions = [
   {
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    title: "Inside which HTML element do we put the JavaScript?",
+    choices: ["<js>", "<javascript>", "<scripting>", "<script>"],
+    answer: "<script>"
   },
+
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"
+    title: "Where is the correct place to insert a JavaScript?",
+    choices: ["<head> section", "<body> section", "both", "neither"],
+    answer: "both"
   },
+
   {
     title: "Arrays in JavaScript can be used to store ____.",
     choices: [
-      "numbers and strings",
-      "other arrays",
+      "numbers",
+      "strings",
       "booleans",
       "all of the above"
     ],
     answer: "all of the above"
   },
+
+  {
+    title: "How do you write Hello World in an alert box?",
+    choices: [
+      "msg(Hello World)",
+      "alert(Hello World)",
+      "alertBox(Hello World)",
+      "msgBox(Hello World)"
+    ],
+    answer: "alert(Hello World)"
+  },
+
   {
     title:
-      "String values must be enclosed within ____ when being assigned to variables.",
-    choices: ["commas", "curly brackets", "quotes", "parentheses"],
-    answer: "quotes"
+      "How do you call a function named myFunction?",
+    choices: ["myFunction()", "call myFunction", "call function myFunction()"],
+    answer: "myFunction()"
   },
+
   {
     title:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-    choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+    choices: ["JavaScript", "Git Bash", "Terminal", "console.log"],
     answer: "console.log"
-  }
+  },
+
+  {
+    title:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["JavaScript", "Git Bash", "Terminal", "console.log"],
+    answer: "console.log"
+  },
+
+  {
+    title:
+      "The external JavaScript file must contain the <script> tag.",
+    choices: ["True","False"],
+    answer: "False"
+  },
+
+  {
+    title:
+      "How to write an IF statement in JavaScript?",
+    choices: ["if i=5 then","if (i==5)", "if i==5 then", "if i=5"],
+    answer: "if (i==5)"
+  },
+
+  {
+    title:
+      "How does a WHILE loop start?",
+    choices: ["while (i <=10); i++","while(i<=10)", "while i=1 to 10"],
+    answer: "while(i<=10)"
+  },
+
 ];
