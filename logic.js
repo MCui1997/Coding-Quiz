@@ -25,11 +25,8 @@ function startQuiz() {
 
   startScreenEl.setAttribute("class", "hide");
   questionsEl.removeAttribute("class");
-
   timerId = setInterval(clockTick, 1000);
-
   timerEl.textContent = time;
-
   getQuestion();
 
 }
@@ -61,38 +58,17 @@ function getQuestion() {
   });
 }
 
+//Function for when the person clicks on the answer choice
 function questionClick() {
-  // check if user guessed wrong
   if (this.value !== questions[currentQuestionIndex].answer) {
-    // penalize time
-    time -= 15;
-
-    if (time < 0) {
-      time = 0;
-    }
+    time -= 5;
 
     // display new time on page
     timerEl.textContent = time;
-
- 
-
-    resultsEl.textContent = "Wrong!";
-  } else {
-
-
-    resultsEl.textContent = "Correct!";
   }
 
-  // flash right/wrong results on page for half a second
-  resultsEl.setAttribute("class", "results");
-  setTimeout(function() {
-    resultsEl.setAttribute("class", "results hide");
-  }, 1000);
-
-  // move to next question
   currentQuestionIndex++;
-
-  // if last question, end the quiz
+  //check to see if it's the last question in the array
   if (currentQuestionIndex == questions.length) {
     quizEnd();
   } else {
@@ -100,6 +76,7 @@ function questionClick() {
   }
 }
 
+//function for when the quiz is finished
 function quizEnd() {
   // stop timer
   clearInterval(timerId);
