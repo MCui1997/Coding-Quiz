@@ -1,11 +1,15 @@
-// Initialize
+//Plan, what functions do I need?
+//I need functions for start button, function for the answer choice button, function to show questions, function to decrease timer
+//Function to end game, function for highscores section
+
+// Initialize all variables needed
 var currentQuestionIndex = 0;
 var time = questions.length * 15;
 var timerId;
 
-// get elements
+// get elements from html pages
 var questionsEl = document.getElementById("questions");
-var timerEl = document.getElementById("timer");
+var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
@@ -72,13 +76,11 @@ function questionClick() {
     // display new time on page
     timerEl.textContent = time;
 
-    // play "wrong" sound effect
-    sfxWrong.play();
+ 
 
     feedbackEl.textContent = "Wrong!";
   } else {
-    // play "right" sound effect
-    sfxRight.play();
+
 
     feedbackEl.textContent = "Correct!";
   }
@@ -105,7 +107,7 @@ function quizEnd() {
   clearInterval(timerId);
 
   // show end screen
-  var endScreenEl = document.getElementById("end");
+  var endScreenEl = document.getElementById("end-screen");
   endScreenEl.removeAttribute("class");
 
   // show final score

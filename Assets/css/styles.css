@@ -9,6 +9,12 @@ body {
  
 }
 
+ol {
+  padding-left: 0px;
+  max-height: 400px;
+  overflow: auto;
+}
+
 a {
   color:white;
   text-decoration: none;
