@@ -17,6 +17,9 @@ var initialsEl = document.getElementById("initials");
 var resultsEl = document.getElementById("results");
 var startScreenEl = document.getElementById("start-screen");
 
+//Calling all the functions from below, start quiz and save scores
+startBtn.onclick = startQuiz;
+submitBtn.onclick = saveHighscore;
 
 
 //Actions needed after clicking start quiz, hide starting screen and load questions
@@ -51,7 +54,7 @@ function getQuestion() {
     choiceNode.textContent = i + 1 + ". " + choice;
 
     // attach click event listener to each choice
-    choiceNode.onclick = questionClick;
+    choiceNode.onclick = nextQuestion;
 
     // display on the page
     choicesEl.appendChild(choiceNode);
@@ -59,25 +62,23 @@ function getQuestion() {
 }
 
 //Function for when the person clicks on the answer choice
-function questionClick() {
+function nextQuestion() {
   if (this.value !== questions[currentQuestionIndex].answer) {
     time -= 5;
-
     // display new time on page
     timerEl.textContent = time;
   }
-
   currentQuestionIndex++;
   //check to see if it's the last question in the array
   if (currentQuestionIndex == questions.length) {
-    quizEnd();
+    endQuiz();
   } else {
     getQuestion();
   }
 }
 
 //function for when the quiz is finished
-function quizEnd() {
+function endQuiz() {
   // stop timer
   clearInterval(timerId);
 
@@ -93,14 +94,12 @@ function quizEnd() {
   questionsEl.setAttribute("class", "hide");
 }
 
+//Updating time function continuously
 function clockTick() {
-  // update time
   time--;
   timerEl.textContent = time;
-
-  // check if user ran out of time
   if (time <= 0) {
-    quizEnd();
+    endQuiz();
   }
 }
 
@@ -130,21 +129,6 @@ function saveHighscore() {
   }
 }
 
-function checkForEnter(event) {
-  // "13" represents the enter key
-  if (event.key === "Enter") {
-    saveHighscore();
-  }
-}
-
-// user clicks button to submit initials
-submitBtn.onclick = saveHighscore;
-
-
-// user clicks button to start quiz
-startBtn.onclick = startQuiz;
-
-initialsEl.onkeyup = checkForEnter;
 
 
 
