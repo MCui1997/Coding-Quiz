@@ -1,6 +1,8 @@
 body {
   font-family: Arial;
   font-size: 120%;
+  background-color: #2F4F4F;
+  color: white;
 }
 
 a {
@@ -56,6 +58,7 @@ li:nth-child(odd) {
 .wrapper {
   margin: 100px auto 0 auto;
   max-width: 600px;
+  color: white;
 }
 
 .hide {
