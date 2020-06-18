@@ -4,7 +4,7 @@
 
 // Initialize all variables needed
 var currentQuestionIndex = 0;
-var time = questions.length * 15;
+var time = 100;
 var timerId;
 
 // get elements from html pages
@@ -14,16 +14,19 @@ var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
-var feedbackEl = document.getElementById("feedback");
+var resultsEl = document.getElementById("results");
+var startScreenEl = document.getElementById("start-screen");
 
 
 
+//Actions needed after clicking start quiz, hide starting screen and load questions
+//Timer begins to count down
 function startQuiz() {
+
   // hide start screen
-  var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
 
-  // un-hide questions section
+  // show questions
   questionsEl.removeAttribute("class");
 
   // start timer
@@ -78,24 +81,24 @@ function questionClick() {
 
  
 
-    feedbackEl.textContent = "Wrong!";
+    resultsEl.textContent = "Wrong!";
   } else {
 
 
-    feedbackEl.textContent = "Correct!";
+    resultsEl.textContent = "Correct!";
   }
 
-  // flash right/wrong feedback on page for half a second
-  feedbackEl.setAttribute("class", "feedback");
+  // flash right/wrong results on page for half a second
+  resultsEl.setAttribute("class", "results");
   setTimeout(function() {
-    feedbackEl.setAttribute("class", "feedback hide");
+    resultsEl.setAttribute("class", "results hide");
   }, 1000);
 
   // move to next question
   currentQuestionIndex++;
 
-  // check if we've run out of questions
-  if (currentQuestionIndex === questions.length) {
+  // if last question, end the quiz
+  if (currentQuestionIndex == questions.length) {
     quizEnd();
   } else {
     getQuestion();
