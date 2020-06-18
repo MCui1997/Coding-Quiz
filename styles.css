@@ -64,10 +64,11 @@ h1{
 
 .container {
   margin: 100px auto 0 auto;
-  max-width: 600px;
+  max-width: 60%;
   color:white;
   text-align: center;
 }
+
 
 .hide {
   display: none;
