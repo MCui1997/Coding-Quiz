@@ -65,8 +65,10 @@ function getQuestion() {
 function nextQuestion() {
   if (this.value !== questions[currentQuestionIndex].answer) {
     time -= 5;
-    // display new time on page
+  
     timerEl.textContent = time;
+    timerEl.style.color = "red";
+
   }
   currentQuestionIndex++;
   //check to see if it's the last question in the array
@@ -78,23 +80,18 @@ function nextQuestion() {
 }
 
 //function for when the quiz is finished
-function endQuiz() {
-  // stop timer
-  clearInterval(timerId);
+function endQuiz() {clearInterval(timerId);
 
-  // show end screen
   var endScreenEl = document.getElementById("end-screen");
   endScreenEl.removeAttribute("class");
 
-  // show final score
   var finalScoreEl = document.getElementById("final-score");
   finalScoreEl.textContent = time;
 
-  // hide questions section
   questionsEl.setAttribute("class", "hide");
 }
 
-//Updating time function continuously
+//Updating time 
 function clockTick() {
   time--;
   timerEl.textContent = time;
@@ -104,26 +101,25 @@ function clockTick() {
 }
 
 function saveHighscore() {
-  // get value of input box
+
   var initials = initialsEl.value.trim();
 
-  // make sure value wasn't empty
+
   if (initials !== "") {
-    // get saved scores from localstorage, or if not any, set to empty array
+
     var highscores =
       JSON.parse(window.localStorage.getItem("highscores")) || [];
 
-    // format new score object for current user
     var newScore = {
       score: time,
       initials: initials
     };
 
-    // save to localstorage
+    // store
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
-    // redirect to next page
+    // next page
     window.location.href = "highscores.html";
     
   }
