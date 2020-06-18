@@ -1,15 +1,12 @@
 # 04 Web APIs: Code Quiz
 
 Objective: Develop a functional coding quiz that features a timer and highscore storage.
-```
 
 Links
-
 
 Repo:https://github.com/MCui1997/Coding-Quiz
 
 Site:https://mcui1997.github.io/Coding-Quiz/
-```
 
 ## Acceptance Criteria
 
