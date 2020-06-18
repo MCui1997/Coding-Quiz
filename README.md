@@ -1,4 +1,4 @@
-Code Quiz
+## Code Quiz
 
 Objective: Develop a functional coding quiz that features a timer and highscore storage.
 
