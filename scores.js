@@ -1,6 +1,9 @@
-///// Functions for printing highscores
+//Get elementIDs and also call function when new page is loaded
+document.getElementById("clear").onclick = clearHighscores;
+printScores();
 
-function printHighscores() {
+///// Functions for printing highscores
+function printScores() {
     // either get scores from localstorage or set to empty array
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
   
@@ -20,13 +23,9 @@ function printHighscores() {
     });
   }
   
+  //Clearing the scores that are stord
   function clearHighscores() {
     window.localStorage.removeItem("highscores");
     window.location.reload();
   }
   
-  document.getElementById("clear").onclick = clearHighscores;
-  
-  
-  // run function when page loads
-  printHighscores();

@@ -19,8 +19,18 @@ var startScreenEl = document.getElementById("start-screen");
 
 //Calling all the functions from below, start quiz and save scores
 startBtn.onclick = startQuiz;
-submitBtn.onclick = saveHighscore;
+submitBtn.onclick = saveScores;
 
+
+
+//Updating time 
+function clockTick() {
+  time--;
+  timerEl.textContent = time;
+  if (time <= 0) {
+    endQuiz();
+  }
+}
 
 //Actions needed after clicking start quiz, hide starting screen and load questions
 //Timer begins to count down
@@ -61,6 +71,11 @@ function getQuestion() {
   });
 }
 
+//return to original color
+function changeColor(){
+  timerEl.style.color = "white";
+  
+}
 //Function for when the person clicks on the answer choice
 function nextQuestion() {
   if (this.value !== questions[currentQuestionIndex].answer) {
@@ -68,8 +83,15 @@ function nextQuestion() {
   
     timerEl.textContent = time;
     timerEl.style.color = "red";
+    
+    setTimeout(changeColor, 200);
 
   }
+  else{
+    timerEl.style.color="green";
+    setTimeout(changeColor,200);
+  }
+  
   currentQuestionIndex++;
   //check to see if it's the last question in the array
   if (currentQuestionIndex == questions.length) {
@@ -91,25 +113,13 @@ function endQuiz() {clearInterval(timerId);
   questionsEl.setAttribute("class", "hide");
 }
 
-//Updating time 
-function clockTick() {
-  time--;
-  timerEl.textContent = time;
-  if (time <= 0) {
-    endQuiz();
-  }
-}
-
-function saveHighscore() {
+function saveScores() {
 
   var initials = initialsEl.value.trim();
 
-
   if (initials !== "") {
-
     var highscores =
       JSON.parse(window.localStorage.getItem("highscores")) || [];
-
     var newScore = {
       score: time,
       initials: initials
