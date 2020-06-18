@@ -1,5 +1,7 @@
 // using dom, need to create the template for all questions
 // just used 10 questions from w3 schools
+//Final working version
+
 var questions = [
   {
     title: "Inside which HTML element do we put the JavaScript?",
@@ -51,9 +53,9 @@ var questions = [
 
   {
     title:
-      "A very useful tool used during development and debugging for printing content to the debugger is:",
-    choices: ["JavaScript", "Git Bash", "Terminal", "console.log"],
-    answer: "console.log"
+      "When trying to print through an array, a great method of doing so is __",
+    choices: ["for loop", "push method", "timeout function", "alert"],
+    answer: "for loop"
   },
 
   {
