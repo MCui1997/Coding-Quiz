@@ -1,20 +1,18 @@
-// variables to keep track of quiz state
+// Initialize
 var currentQuestionIndex = 0;
 var time = questions.length * 15;
 var timerId;
 
-// variables to reference DOM elements
+// get elements
 var questionsEl = document.getElementById("questions");
-var timerEl = document.getElementById("time");
+var timerEl = document.getElementById("timer");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 
-// sound effects
-var sfxRight = new Audio("assets/sfx/correct.wav");
-var sfxWrong = new Audio("assets/sfx/incorrect.wav");
+
 
 function startQuiz() {
   // hide start screen
@@ -107,7 +105,7 @@ function quizEnd() {
   clearInterval(timerId);
 
   // show end screen
-  var endScreenEl = document.getElementById("end-screen");
+  var endScreenEl = document.getElementById("end");
   endScreenEl.removeAttribute("class");
 
   // show final score
