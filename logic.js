@@ -113,6 +113,7 @@ function endQuiz() {clearInterval(timerId);
   questionsEl.setAttribute("class", "hide");
 }
 
+// function in order to save scores to the local device storage
 function saveScores() {
 
   var initials = initialsEl.value.trim();

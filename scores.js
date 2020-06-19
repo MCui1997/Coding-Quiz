@@ -4,20 +4,20 @@ printScores();
 
 ///// Functions for printing highscores
 function printScores() {
-    // either get scores from localstorage or set to empty array
+    // retreieve scores
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
   
-    // sort highscores by score property in descending order
+    // sort scores 
     highscores.sort(function(a, b) {
       return b.score - a.score;
     });
   
     highscores.forEach(function(score) {
-      // create li tag for each high score
+
       var liTag = document.createElement("LI");
       liTag.textContent = score.initials + " - " + score.score;
   
-      // display on page
+      //display
       var olEl = document.getElementById("highscores");
       olEl.appendChild(liTag);
     });
