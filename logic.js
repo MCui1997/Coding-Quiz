@@ -47,27 +47,23 @@ function startQuiz() {
 //How to load questions from our storage
 function getQuestion() {
 
+  // clear out any old question choices
+  choicesEl.innerHTML = "";
+
   var currentQuestion = questions[currentQuestionIndex];
   var titleEl = document.getElementById("question-title");
   titleEl.textContent = currentQuestion.title;
 
-  // clear out any old question choices
-  choicesEl.innerHTML = "";
-
   // loop over choices
   currentQuestion.choices.forEach(function(choice, i) {
     // create new button for each choice
-    var choiceNode = document.createElement("button");
-    choiceNode.setAttribute("class", "choice");
-    choiceNode.setAttribute("value", choice);
+    var choiceBtn = document.createElement("button");
+    choiceBtn.setAttribute("class", "choice");
+    choiceBtn.setAttribute("value", choice);
 
-    choiceNode.textContent = i + 1 + ". " + choice;
-
-    // attach click event listener to each choice
-    choiceNode.onclick = nextQuestion;
-
-    // display on the page
-    choicesEl.appendChild(choiceNode);
+    choiceBtn.textContent = i + 1 + ". " + choice;
+    choiceBtn.onclick = nextQuestion;
+    choicesEl.appendChild(choiceBtn);
   });
 }
 
@@ -126,7 +122,7 @@ function saveScores() {
       initials: initials
     };
 
-    // store
+    // store and puts into string
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
