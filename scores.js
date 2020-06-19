@@ -4,26 +4,28 @@ printScores();
 
 ///// Functions for printing highscores
 function printScores() {
-    // retreieve scores
+    // retreieve scores, use parse to get it from local storage
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
   
     // sort scores 
-    highscores.sort(function(a, b) {
-      return b.score - a.score;
+    highscores.sort(function(x, y) {
+      return y.score - x.score;
     });
   
+    //append to high scores
     highscores.forEach(function(score) {
 
       var liTag = document.createElement("LI");
-      liTag.textContent = score.initials + " - " + score.score;
-  
-      //display
+      score.initials = score.initials.toUpperCase();
+      liTag.textContent= score.initials + " --- " + score.score;
+      
+      
       var olEl = document.getElementById("highscores");
       olEl.appendChild(liTag);
     });
   }
   
-  //Clearing the scores that are stord
+  //Clearing the scores that are stored
   function clearHighscores() {
     window.localStorage.removeItem("highscores");
     window.location.reload();
