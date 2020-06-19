@@ -2,13 +2,13 @@
 
 Objective: Develop a functional coding quiz that features a timer and highscore storage.
 
-##Links
+## Links
 
 Repo: https://github.com/MCui1997/Coding-Quiz
 
 Site: https://mcui1997.github.io/Coding-Quiz/
 
-##Screenshots
+## Screenshots
 
 
 
